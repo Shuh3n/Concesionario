@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="412.0" prefWidth="272.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RestaurarAdminViewController">
+   <children>
+      <SplitPane dividerPositions="0.8763157894736842" orientation="VERTICAL" prefHeight="413.0" prefWidth="272.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="207.0" prefWidth="234.0">
+               <children>
+                  <Separator layoutY="147.0" prefHeight="7.0" prefWidth="272.0" />
+                  <Label fx:id="labelConfirmar" layoutX="71.0" layoutY="255.0" text="Confirmar contraseña">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtConfirmarCr" layoutX="63.0" layoutY="275.0" />
+                  <TextField fx:id="txtNuevaContra" layoutX="62.0" layoutY="223.0" />
+                  <Label fx:id="labelNuevaContra" layoutX="81.0" layoutY="203.0" text="Nueva contraseña">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelNuevaContra1" layoutX="109.0" layoutY="154.0" text="ID admin">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btnConfirmarContra" layoutX="75.0" layoutY="317.0" mnemonicParsing="false" onAction="#cambiarContra" text="Cambiar Contraseña" />
+                  <TextField fx:id="txtIDadmin" layoutX="63.0" layoutY="174.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="93.0" prefWidth="270.0">
+               <children>
+                  <Button fx:id="btnVolver" layoutX="115.0" layoutY="8.0" mnemonicParsing="false" onAction="#regresarVentana" text="Volver" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <Label layoutX="24.0" layoutY="22.0" text="¿Cómo se llama la mascota?">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="92.0" layoutY="49.0" text="del dueño?">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtPregunta" layoutX="16.0" layoutY="76.0" prefHeight="27.0" prefWidth="241.0" />
+      <Button fx:id="btnValidar" layoutX="108.0" layoutY="111.0" mnemonicParsing="false" onAction="#validarPregunta" text="Validar" />
+   </children>
+</AnchorPane>

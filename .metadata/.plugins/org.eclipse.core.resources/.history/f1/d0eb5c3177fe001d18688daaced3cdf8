@@ -1,0 +1,85 @@
+package controllers;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import model.Estado;
+import model.TipoCombustible;
+import model.TipoVehiculo;
+import model.Vehiculo;
+
+public class VansViewController {
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private TableColumn<Vehiculo,String> columnModelo;
+
+    @FXML
+    private TableColumn<Vehiculo, TipoCombustible> columnCombustible;
+
+    @FXML
+    private TableColumn<Vehiculo, Estado> columnEstado;
+
+    @FXML
+    private TableColumn<Vehiculo, TipoVehiculo> columnTipo;
+
+    @FXML
+    private TableColumn<Vehiculo, boolean> columnAireAcondicionado;
+
+    @FXML
+    private TableColumn<Vehiculo, boolean> columnAbs;
+
+    @FXML
+    private TableColumn<?, ?> columnAutonomia;
+
+    @FXML
+    private TableColumn<?, ?> columnCapacidadMaletero;
+
+    @FXML
+    private TableColumn<?, ?> columnVelocidadMax;
+
+    @FXML
+    private TableColumn<?, ?> columnBolsasAire;
+
+    @FXML
+    private TableColumn<?, ?> columnPasajeros;
+
+    @FXML
+    private TableColumn<?, ?> columnCilindraje;
+
+    @FXML
+    private TableColumn<?, ?> columnTiempoCarga;
+
+    @FXML
+    private TableColumn<Vehiculo, boolean> columnCamaraReversa;
+
+    @FXML
+    private TableColumn<?, ?> columnTransmision;
+
+    @FXML
+    private TableView<?> tableViewVans;
+
+    @FXML
+    private TableColumn<?, ?> columnCambios;
+
+    @FXML
+    private TableColumn<?, ?> columnMarca;
+
+    @FXML
+    private TableColumn<?, ?> columnPuertas;
+
+
+    @FXML
+    void initialize() {
+    }
+}
+

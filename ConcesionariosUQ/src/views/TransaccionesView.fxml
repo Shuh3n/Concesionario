@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="584.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.TransaccionesViewController">
+   <children>
+      <SplitPane dividerPositions="0.8976377952755905" layoutY="1.0" orientation="VERTICAL" prefHeight="510.0" prefWidth="584.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="258.0" prefWidth="582.0">
+               <children>
+                  <Label layoutX="217.0" layoutY="14.0" prefHeight="35.0" prefWidth="149.0" text="Transacciones">
+                     <font>
+                        <Font name="Dubai Medium" size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imageTransacciones" fitHeight="150.0" fitWidth="200.0" layoutX="221.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../Downloads/Facturas.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="17.0" layoutY="305.0" text="Encargado">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="17.0" layoutY="386.0" text="Valor de factura">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="313.0" layoutY="386.0" text="Fecha">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="313.0" layoutY="305.0" text="Tipo">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtCodeEncargado" layoutX="147.0" layoutY="306.0" />
+                  <TextField fx:id="txtValorFactura" layoutX="147.0" layoutY="387.0" />
+                  <ComboBox fx:id="comboBoxTipoFactura" layoutX="380.0" layoutY="306.0" prefHeight="25.0" prefWidth="169.0" />
+                  <DatePicker fx:id="dateFechaFactura" layoutX="380.0" layoutY="387.0" />
+                  <TextField fx:id="txtMarca" layoutX="147.0" layoutY="247.0" />
+                  <TextField fx:id="txtModelo" layoutX="380.0" layoutY="247.0" />
+                  <Label layoutX="17.0" layoutY="246.0" text="Marca">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="313.0" layoutY="246.0" text="Modelo">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="70.0" layoutY="200.0" text="Código de factura ">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtCodigoFactura" layoutX="219.0" layoutY="201.0" prefHeight="25.0" prefWidth="224.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="82.0" prefWidth="582.0">
+               <children>
+                  <Button fx:id="btnRealizarCompra" layoutX="241.0" layoutY="12.0" mnemonicParsing="false" onAction="#registrarTransaccion" text="Realizar compra" />
+                  <Button fx:id="btnVolver" layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#abrirVentanaPrincipal" text="Volver" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

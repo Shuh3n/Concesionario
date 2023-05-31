@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane prefHeight="702.0" prefWidth="1555.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.VansViewController">
+   <children>
+      <Label layoutX="617.0" layoutY="14.0" prefHeight="35.0" prefWidth="124.0" text="Comprar camionetas Vans " AnchorPane.leftAnchor="617.0" AnchorPane.rightAnchor="608.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="Baskerville Old Face" size="24.0" />
+         </font>
+      </Label>
+      <TabPane layoutX="14.0" layoutY="55.0" prefHeight="589.0" prefWidth="1536.0" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="Comprar Coches">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="560.0" prefWidth="1573.0">
+                     <children>
+                        <TableView fx:id="tableViewVans" editable="true" layoutX="-9.0" layoutY="27.0" prefHeight="410.0" prefWidth="1682.0" tableMenuButtonVisible="true">
+                          <columns>
+                            <TableColumn fx:id="columnCombustible" prefWidth="86.0" text="Combustible" />
+                            <TableColumn fx:id="columnTransmision" prefWidth="79.0" text="Transmision" />
+                              <TableColumn fx:id="columnEstado" prefWidth="60.0" text="Estado" />
+                              <TableColumn fx:id="columnTipo" prefWidth="75.0" text="Tipo" />
+                              <TableColumn fx:id="columnMarca" prefWidth="75.0" text="Marca" />
+                              <TableColumn fx:id="columnModelo" prefWidth="75.0" text="Modelo" />
+                              <TableColumn fx:id="columnCambios" prefWidth="75.0" text="# Cambios" />
+                              <TableColumn fx:id="columnVelocidadMax" prefWidth="94.0" text="Velocidad max" />
+                              <TableColumn fx:id="columnCilindraje" prefWidth="32.0" text="C.C" />
+                              <TableColumn fx:id="columnCapacidadMaletero" prefWidth="119.0" text="Capacidad maletero" />
+                              <TableColumn fx:id="columnBolsasAire" prefWidth="103.0" text="# Bolsas de Aire" />
+                              <TableColumn fx:id="columnPasajeros" prefWidth="75.0" text="Pasajeros" />
+                              <TableColumn fx:id="columnPuertas" prefWidth="75.0" text="Puertas" />
+                              <TableColumn fx:id="columnAireAcondicionado" prefWidth="120.0" text="Aire Acondicionado" />
+                              <TableColumn fx:id="columnCamaraReversa" prefWidth="103.0" text="Cámara reversa" />
+                              <TableColumn fx:id="columnTiempoCarga" prefWidth="99.0" text="Tiempo carga" />
+                              <TableColumn fx:id="columnAutonomia" prefWidth="99.0" text="Autonomia" />
+                              <TableColumn fx:id="columnAbs" minWidth="6.0" prefWidth="99.0" text="ABS" />
+                          </columns>
+                        </TableView>
+                        <Separator layoutX="13.0" layoutY="9.0" prefHeight="6.0" prefWidth="1555.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+      <Separator layoutY="650.0" prefHeight="6.0" prefWidth="1555.0" />
+      <Button fx:id="btnRegresar" layoutX="746.0" layoutY="656.0" mnemonicParsing="false" onAction="#abrirVentanaEmpleado" text="Regresar" />
+   </children>
+</AnchorPane>

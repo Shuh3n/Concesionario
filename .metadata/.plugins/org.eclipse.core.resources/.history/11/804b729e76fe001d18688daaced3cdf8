@@ -1,0 +1,79 @@
+package controllers;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+
+public class EmpleadoViewController {
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private TableColumn<?, ?> columnModelo;
+
+    @FXML
+    private TableColumn<?, ?> columnCombustible;
+
+    @FXML
+    private TableColumn<?, ?> columnEstado;
+
+    @FXML
+    private TableColumn<?, ?> columnTipo;
+
+    @FXML
+    private TableColumn<?, ?> columnAireAcondicionado;
+
+    @FXML
+    private TableColumn<?, ?> columnAutonomia;
+
+    @FXML
+    private TableColumn<?, ?> columnCapacidadMaletero;
+
+    @FXML
+    private TableColumn<?, ?> columnVelocidadMax;
+
+    @FXML
+    private TableColumn<?, ?> columnBolsasAire;
+
+    @FXML
+    private TableColumn<?, ?> columnPasajeros;
+
+    @FXML
+    private TableColumn<?, ?> columnCilindraje;
+
+    @FXML
+    private TableColumn<?, ?> columnTiempoCarga;
+
+    @FXML
+    private TableColumn<?, ?> columnCamaraReversa;
+
+    @FXML
+    private TableColumn<?, ?> columnTransmision;
+
+    @FXML
+    private TableView<?> tableViewVans;
+
+    @FXML
+    private TableColumn<?, ?> columnCambios;
+
+    @FXML
+    private TableColumn<?, ?> columnMarca;
+
+    @FXML
+    private TableColumn<?, ?> columnPuertas;
+
+
+
+    @FXML
+    void initialize() {
+    }
+}
+

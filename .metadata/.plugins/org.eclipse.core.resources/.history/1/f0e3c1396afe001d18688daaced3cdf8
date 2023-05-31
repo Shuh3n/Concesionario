@@ -1,0 +1,70 @@
+package controllers;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import application.Aplicacion;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+import model.ConcesiorarioUQ;
+
+public class IniciarEmpleadoViewController {
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private TextField txtNombre;
+
+    @FXML
+    private Button btnVolver;
+
+    @FXML
+    private ImageView imagenAdmin;
+
+    @FXML
+    private Button btnIngresar;
+
+    @FXML
+    private PasswordField txtPassword;
+
+	private PrincipalViewController ventanaPrincipalController;
+
+	private ConcesiorarioUQ concesionario;
+
+	private Stage stage;
+
+	private Aplicacion aplicacion;
+
+    @FXML
+    void abrirVentanaEmpleado(ActionEvent event) {
+
+    }
+
+    @FXML
+    void abrirVentanaPrincipal(ActionEvent event) {
+
+    }
+
+    @FXML
+    void initialize() {
+
+    }
+	public  void setAplicacion(Aplicacion aplicacion) {
+		this.aplicacion = aplicacion;
+	}
+
+	public void init(Stage stage, PrincipalViewController principalViewController) {
+		this.ventanaPrincipalController = principalViewController;
+		this.concesionario = aplicacion.getConcesionario();
+		this.stage = stage;
+	}
+}

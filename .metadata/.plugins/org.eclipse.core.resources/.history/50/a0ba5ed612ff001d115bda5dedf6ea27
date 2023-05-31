@@ -1,0 +1,157 @@
+package controllers;
+
+import java.net.URL;
+import java.time.LocalDate;
+import java.util.ResourceBundle;
+
+import application.Aplicacion;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+import model.TipoTransacciones;
+import model.Transaccion;
+
+public class ActualizaciónDetalleController implements Initializable{
+
+	Singleton singleton = Singleton.getInstance();
+
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private ComboBox<TipoTransacciones> comboBoxTipoFactura;
+
+    @FXML
+    private TextField txtModelo;
+
+    @FXML
+    private Button btnVolver;
+
+    @FXML
+    private TextField txtCodeEncargado;
+
+    @FXML
+    private TextField txtCodigoFactura;
+
+    @FXML
+    private ImageView imageTransacciones;
+
+    @FXML
+    private TextField txtValorFactura;
+
+    @FXML
+    private TextField txtMarca;
+
+    @FXML
+    private Button btnActualizar;
+
+    @FXML
+    private DatePicker dateFechaFactura;
+
+	private Aplicacion aplicacion;
+
+	private Stage stage;
+
+	private AdminViewController adminViewController;
+
+    @FXML
+    void actualizarTransaccion(ActionEvent event) {
+    	String marca = txtMarca.getText();
+    	String modelo = txtModelo.getText();
+    	String codigo = txtCodigoFactura.getText();
+    	String codigoEmpleado = txtCodeEncargado.getText();
+    	TipoTransacciones transaccion = comboBoxTipoFactura.getValue();
+    	String valor = txtValorFactura.getText();
+    	LocalDate fecha = dateFechaFactura.getValue();
+
+    	if(codigoEmpleado!=null && !codigoEmpleado.equals("")){
+    		crearFactura(marca, modelo, codigo, codigoEmpleado, transaccion, valor, fecha);
+    		this.stage.close();
+
+    	}
+    	else{
+    		mostrarMensaje("Notificiación", "", "Por favor ingrese el ID del empleado", AlertType.INFORMATION);
+    	}
+    }
+
+	private void crearFactura(String marca, String modelo, String codigo, String codigoEmpleado,
+			TipoTransacciones transaccion, String valor, LocalDate fecha) {
+		String flag = singleton.actualizarFactura(marca, modelo, codigo, codigoEmpleado, transaccion, valor, fecha);
+		if (flag == "0") {
+			mostrarMensaje("Información", "Factura actualizada", "La factura se actualizó con éxito",
+					AlertType.INFORMATION);
+			adminViewController.refreshTableViewDetalls();
+			adminViewController.setDetallerSelection();
+
+		}
+		else {
+			mostrarMensaje("Información", "Factura no actualizada", "El ID del empleado está errado", AlertType.INFORMATION);
+		}
+	}
+
+	  public void mostrarMensaje(String titulo, String header, String contenido, AlertType alertype) {
+			Alert alert = new Alert(alertype);
+			alert.setTitle(titulo);
+			alert.setHeaderText(header);
+			alert.setContentText(contenido);
+			alert.showAndWait();
+		}
+
+
+    @FXML
+    void abrirVentanaPrincipal(ActionEvent event) {
+    	this.stage.close();
+    }
+
+    @FXML
+    void initialize() {
+
+    }
+
+
+	public  void setAplicacion(Aplicacion aplicacion) {
+		this.aplicacion = aplicacion;
+	}
+
+	public void init(Stage stage, AdminViewController adminViewController) {
+		this.stage = stage;
+		this.adminViewController = adminViewController;
+	}
+
+	public void actualizarInfo() {
+		Transaccion trans = adminViewController.getTransaccionSelection();
+		txtCodigoFactura.setText("" + trans.getCodigoTransaccion());
+		txtMarca.setText(""+ trans.getMarcaCoche());
+		txtModelo.setText(""+ trans.getModeloCoche());
+		comboBoxTipoFactura.setValue(trans.getTipoTransaccion());
+		txtValorFactura.setText(""+ trans.getTotal());
+		dateFechaFactura.setValue(trans.getFecha());
+
+
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+
+		txtMarca.setEditable(false);
+		comboBoxTipoFactura.getItems().addAll(TipoTransacciones.values());
+		comboBoxTipoFactura.setDisable(true);
+		dateFechaFactura.setDisable(true);
+		txtModelo.setEditable(false);
+		txtCodigoFactura.setEditable(false);
+		txtValorFactura.setEditable(false);
+	}
+}
+

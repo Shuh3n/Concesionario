@@ -1,0 +1,166 @@
+package controllers;
+
+import java.net.URL;
+import java.time.LocalDate;
+import java.util.ResourceBundle;
+
+import application.Aplicacion;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Stage;
+
+public class RestaurarAdminViewController {
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private TextField txtConfirmarCr;
+
+    @FXML
+    private Button btnValidar;
+
+    @FXML
+    private Label labelNuevaContra;
+
+    @FXML
+    private TextField txtPregunta;
+
+    @FXML
+    private Button btnConfirmarContra;
+
+    @FXML
+    private Button btnVolver;
+
+    @FXML
+    private TextField txtNuevaContra;
+
+    @FXML
+    private Label labelConfirmar;
+
+	private Aplicacion aplicacion;
+
+	private Stage stage;
+
+
+    @FXML
+    void cambiarContra(ActionEvent event) {
+		String nuevaContra = txtNuevaContra.getText();
+		String nuevaContra2 = txtNuevaContra.getText();
+
+		if(validarDatos(nuevaContra, nuevaContra2)){
+
+		}
+
+
+
+    }
+
+	private boolean validarDatos(String nuevaContra, String nuevaContra2) {
+		String notificacion = "";
+
+		/*Se valida que el saldo ingresado no sea null ni sea cadena vacía,
+		además se valida que sea numérico para su correcta conversión */
+
+
+		if (nuevaContra == null || nuevaContra.equals("")) {
+			notificacion += "Ingrese la contraseña\n";
+		}
+		else {
+			if(!esNumero(nuevaContra)){
+				notificacion += "La contraseña ingresada debe ser numérica\n";
+			}
+		}
+
+		if (nuevaContra2 == null || nuevaContra2.equals("")) {
+			notificacion += "Ingrese la confirmación contraseña\n";
+		}
+		else {
+			if(!esNumero(nuevaContra2)){
+				notificacion += "La contraseña ingresada debe ser numérica\n";
+			}
+		}
+		if (!nuevaContra2.equals(nuevaContra)){
+			notificacion += "La contraseña y confirmación deber ser iguales\n";
+		}
+
+		if (!notificacion.equals("")) {
+			mostrarMensaje("Notificación", "Cliente no creado", notificacion, AlertType.WARNING);
+			return false;
+		}
+
+		return true;
+	}
+
+	private boolean esNumero(String string) {
+
+		try {
+
+			Float.parseFloat(string);
+
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+    @FXML
+    void validarPregunta(ActionEvent event) {
+     	String pregunta = txtPregunta.getText();
+
+		if (pregunta != null && !pregunta.equals("")){
+			if (txtPregunta.getText().toLowerCase().equals("honey")) {
+
+				labelConfirmar.setVisible(true);
+				labelNuevaContra.setVisible(true);
+				btnConfirmarContra.setVisible(true);
+				txtNuevaContra.setVisible(true);
+				txtNuevaContra.setVisible(true);
+			} else {
+				mostrarMensaje("Notificación", "", "Respuesta incorrecta", AlertType.INFORMATION);
+			}
+		}
+		else{
+			mostrarMensaje("Notificación", "", "Por favor ingresar una respuesta", AlertType.INFORMATION);
+		}
+    }
+
+	public void mostrarMensaje(String titulo, String header, String contenido, AlertType alertype) {
+		Alert alert = new Alert(alertype);
+		alert.setTitle(titulo);
+		alert.setHeaderText(header);
+		alert.setContentText(contenido);
+		alert.showAndWait();
+	}
+
+    @FXML
+    void regresarVentana(ActionEvent event) {
+
+    }
+
+    @FXML
+    void initialize() {
+    	labelConfirmar.setVisible(false);
+		labelNuevaContra.setVisible(false);
+		btnConfirmarContra.setVisible(false);
+		txtNuevaContra.setVisible(false);
+		txtNuevaContra.setVisible(false);
+
+    }
+
+	public  void setAplicacion(Aplicacion aplicacion) {
+		this.aplicacion = aplicacion;
+	}
+
+	public void init(Stage stage) {
+		this.stage = stage;
+	}
+}

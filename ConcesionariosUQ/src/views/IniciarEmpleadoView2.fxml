@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="316.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.IniciarEmpleadoViewController">
+   <children>
+      <ImageView fx:id="imagenAdmin" fitHeight="190.0" fitWidth="268.0" layoutX="60.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Downloads/Empleado.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="39.0" layoutY="245.0" text="Nombre">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="txtPassword" layoutX="39.0" layoutY="325.0" prefHeight="20.0" prefWidth="239.0" />
+      <Button fx:id="btnIngresar" layoutX="119.0" layoutY="363.0" mnemonicParsing="false" onAction="#abrirVentanaEmpleado" prefHeight="40.0" prefWidth="71.0" text="Ingresar" />
+      <Button fx:id="btnVolver" layoutX="129.0" layoutY="471.0" mnemonicParsing="false" onAction="#abrirVentanaPrincipal" text="Volver" />
+      <TextField fx:id="txtNombre" layoutX="39.0" layoutY="271.0" />
+      <Label layoutX="39.0" layoutY="305.0" text="ID">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

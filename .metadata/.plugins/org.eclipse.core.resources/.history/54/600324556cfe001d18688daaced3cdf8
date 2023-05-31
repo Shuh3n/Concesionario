@@ -1,0 +1,201 @@
+package application;
+
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.List;
+
+import controllers.PrincipalViewController;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import model.Buses;
+import model.Camiones;
+import model.Cliente;
+import model.ConcesiorarioUQ;
+import model.Deportivo;
+import model.Empleado;
+import model.Estado;
+import model.Motos;
+import model.Persona;
+import model.Pickups;
+import model.Sedan;
+import model.Suv;
+import model.TipoCamion;
+import model.TipoCombustible;
+import model.TipoTransmision;
+import model.Vans;
+import model.Vehiculo;
+
+public class Aplicacion extends Application {
+
+	private ConcesiorarioUQ concesionario;
+	private Stage primaryStage;
+
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		this.primaryStage = primaryStage;
+		this.concesionario = new ConcesiorarioUQ();
+		mostrarVentanaPrincipal();
+
+	}
+
+	public ConcesiorarioUQ getConcesionario() {
+		return concesionario;
+	}
+
+	public void setConcesionario(ConcesiorarioUQ concesionario) {
+		this.concesionario = concesionario;
+	}
+
+	public Stage getPrimaryStage() {
+		return primaryStage;
+	}
+
+	public void setPrimaryStage(Stage primaryStage) {
+		this.primaryStage = primaryStage;
+	}
+
+
+
+	private void mostrarVentanaPrincipal() throws IOException {
+		//Se establece la ruta de la ventana que desea ejecutar
+
+		FXMLLoader loader= new FXMLLoader();
+		loader.setLocation(Aplicacion.class.getResource("../Views/PrincipalView.fxml"));
+		AnchorPane anchorPane = (AnchorPane)loader.load();
+		PrincipalViewController ventanaPrincipalController = loader.getController();
+		ventanaPrincipalController.setAplicacion(this);
+
+		Scene scene= new Scene(anchorPane);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+		PrincipalViewController controller = loader.getController();
+		controller.setStage(primaryStage);
+	}
+
+	public boolean crearCliente(String nombre, String apellidos, String cedula, LocalDate fechaNacimiento) {
+		boolean flag = concesionario.crearCliente(nombre, apellidos, cedula, fechaNacimiento);
+		return flag;
+	}
+
+	public List<Cliente> getListaClientes() {
+		List<Cliente> listaClientes = concesionario.getListaClientes();
+
+		return listaClientes;
+	}
+
+	public boolean eliminarCliente(Cliente clienteSeleccion) {
+		boolean flag = concesionario.eliminarCliente(clienteSeleccion);
+		return flag;
+	}
+
+	public boolean crearBus(String marca, String modelo, String cambios, String velocidadMax, String cilindraje,
+			boolean aireAcon, boolean camReversa, boolean abs, String numPasajeros, String numPuertas, String capacidadMaletero, String bolsasAire, String numEjes,
+			String salidasEmergencia, TipoCombustible combustible, TipoTransmision transmision, Estado estado) {
+
+		Vehiculo bus = new Buses(marca, modelo, cambios, velocidadMax, cilindraje, numPasajeros, numPuertas, capacidadMaletero,
+				aireAcon, camReversa, bolsasAire, abs, numEjes, salidasEmergencia, transmision, combustible, estado);
+
+		boolean flag = concesionario.crearVehiculo(bus);
+		return flag;
+	}
+
+	public boolean crearCamion(String marcaCa, String modeloCa, String cambiosCa, String velocidadMaxCa,
+			String cilindrajeCa, TipoCombustible combustibleCa, TipoTransmision transmisionCa, Estado estadoCa,
+			boolean absCa, boolean aireAconCa, String capacidadCarga, TipoCamion tipoCamion, boolean frenoAire,
+			String numEjesCa) {
+
+		Vehiculo Camion = new Camiones(marcaCa, modeloCa, cambiosCa, velocidadMaxCa, cilindrajeCa, capacidadCarga, aireAconCa, absCa,
+				frenoAire, numEjesCa, tipoCamion, transmisionCa, combustibleCa, estadoCa);
+
+		boolean flag = concesionario.crearVehiculo(Camion);
+		return flag;
+	}
+
+	public boolean crearDeportivo(String marcaCa, String modeloCa, String cambiosCa, String velocidadMaxCa,
+			String cilindrajeCa, TipoCombustible combustibleCa, TipoTransmision transmisionCa, Estado estadoCa,
+			String numPasajerosDe, String numPuertasDe, String numBolsasAire, String hp, String aceleracion) {
+
+		Vehiculo deportivo = new Deportivo(marcaCa, modeloCa, cambiosCa, velocidadMaxCa, cilindrajeCa, numPasajerosDe,
+				numPuertasDe, numBolsasAire, hp, aceleracion, transmisionCa, combustibleCa, estadoCa);
+		boolean flag = concesionario.crearVehiculo(deportivo);
+		return flag;
+	}
+
+	public boolean crearMoto(String marcaCa, String modeloCa, String cambiosCa, String velocidadMaxCa,
+			String cilindrajeCa, TipoCombustible combustibleCa, TipoTransmision transmisionCa, Estado estadoCa) {
+
+		Vehiculo moto = new Motos(marcaCa, modeloCa, cambiosCa, velocidadMaxCa, cilindrajeCa, transmisionCa, combustibleCa, estadoCa);
+		boolean flag = concesionario.crearVehiculo(moto);
+		return flag;
+	}
+
+
+	public boolean crearPick(String marca, String modelo, String cambios, String velocidadMax, String cilindraje,
+			TipoCombustible combustible, TipoTransmision transmision, Estado estado, String numPasa, boolean absPic,
+			boolean aire, boolean camRe, String bolsas, boolean cuatrox4, String capacidadCar, String numPuert) {
+
+		Vehiculo pick = new Pickups(marca, modelo, cambios, velocidadMax, cilindraje, numPasa, numPuert,
+				aire, camRe, bolsas, absPic, cuatrox4, capacidadCar, transmision, combustible, estado);
+		boolean flag = concesionario.crearVehiculo(pick);
+		return flag;
+	}
+
+	public boolean crearSedan(String marca, String modelo, String cambios, String velocidadMax, String cilindraje,
+			TipoCombustible combustible, TipoTransmision transmision, Estado estado, String numPasaSe,
+			String numPuertSe, String capacidadMaleteroSe, String numBolsasAireSe, boolean aireSe, boolean camSe, boolean velocidadCrucer, boolean absSe, boolean sensorColi, boolean sensorTrafi, boolean asisCarril) {
+
+		Vehiculo sedan = new Sedan(marca, modelo, cambios, velocidadMax, cilindraje, numPasaSe, numPuertSe, capacidadMaleteroSe,
+				aireSe, camSe, velocidadCrucer, numBolsasAireSe, absSe, sensorColi, sensorTrafi, asisCarril, transmision, combustible, estado);
+		boolean flag = concesionario.crearVehiculo(sedan);
+		return flag;
+	}
+
+	public boolean crearSuv(String marca, String modelo, String cambios, String velocidadMax, String cilindraje,
+			TipoCombustible combustible, TipoTransmision transmision, Estado estado, String numPasaSv,
+			String numPuertSv, String capacidadMaleteroSv, String numBolsasAireSv, boolean aireSv, boolean camSv,
+			boolean velocidadCrucerSv, boolean absSv, boolean sensorColiSv, boolean sensorTrafiSv, boolean asisCarrilSv,
+			boolean traccionSv) {
+
+		Vehiculo suv = new Suv(marca, modelo, cambios, velocidadMax, cilindraje, numPasaSv, numPuertSv, capacidadMaleteroSv, aireSv, camSv, velocidadCrucerSv,
+				numBolsasAireSv, absSv, sensorColiSv, sensorTrafiSv, asisCarrilSv, transmision, combustible, estado, traccionSv);
+		boolean flag = concesionario.crearVehiculo(suv);
+		return flag;
+	}
+
+
+	public boolean crearVan(String marca, String modelo, String cambios, String velocidadMax, String cilindraje,
+			TipoCombustible combustible, TipoTransmision transmision, Estado estado, String numPasajerosVan,
+			String numPuertasVan, String capMaleteroVan, boolean aireAcVan, boolean camVan, String numBolsasAireVan,
+			boolean absVan) {
+
+		Vehiculo van = new Vans(marca, modelo, cambios, velocidadMax, cilindraje, numPasajerosVan, numPuertasVan,
+				capMaleteroVan, aireAcVan, camVan, numBolsasAireVan, absVan, transmision, combustible, estado);
+
+		boolean flag = concesionario.crearVehiculo(van);
+		return flag;
+	}
+
+	public boolean crearEmpleado(String name, String apellidos, String id) {
+		Empleado empleado = new Empleado(name, apellidos, id);
+		boolean flag = concesionario.crearEmpleado(empleado);
+		return flag;
+	}
+
+	public List<Empleado> getListaEmpleados() {
+		return concesionario.getListaEmpleados();
+	}
+
+	public boolean eliminarEmpleado(Empleado empleadoSeleccion) {
+		boolean flag = concesionario.eliminarEmpleado(empleadoSeleccion);
+		return flag;
+	}
+
+
+
+
+
+
+}

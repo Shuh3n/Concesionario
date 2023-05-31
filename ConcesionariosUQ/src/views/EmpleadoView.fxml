@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="702.0" prefWidth="1349.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EmpleadoViewController">
+   <children>
+      <Label layoutX="619.0" layoutY="14.0" prefHeight="35.0" prefWidth="124.0" text="Bienvenido" AnchorPane.leftAnchor="619.0" AnchorPane.rightAnchor="606.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="Baskerville Old Face" size="24.0" />
+         </font>
+      </Label>
+      <TabPane layoutX="14.0" layoutY="49.0" prefHeight="589.0" prefWidth="1334.0" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="Gestion de clientes">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="494.0" prefWidth="645.0">
+                     <children>
+                        <SplitPane dividerPositions="0.5" layoutX="110.0" layoutY="40.0" orientation="VERTICAL" prefHeight="560.0" prefWidth="679.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <items>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="277.0" prefWidth="1116.0">
+                                 <children>
+                                    <Label layoutX="409.0" layoutY="59.0" text="Nombre(s):">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font></Label>
+                                    <Label layoutX="410.0" layoutY="92.0" text="Apellidos">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font></Label>
+                                    <Label layoutX="409.0" layoutY="132.0" text="Cédula">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font></Label>
+                                    <Label layoutX="409.0" layoutY="174.0" text="Fecha de nacimiento">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font></Label>
+                                    <TextField fx:id="txtNombresClientes" layoutX="655.0" layoutY="55.0" prefHeight="25.0" prefWidth="300.0" />
+                                    <TextField fx:id="txtApellidosClientes" layoutX="655.0" layoutY="93.0" prefHeight="25.0" prefWidth="299.0" />
+                                    <TextField fx:id="txtCedulaClientes" layoutX="655.0" layoutY="133.0" prefHeight="25.0" prefWidth="297.0" />
+                                    <Button fx:id="btnActualizarCliente" layoutX="632.0" layoutY="238.0" mnemonicParsing="false" onAction="#actualizarInfoCliente" text="Actualizar" />
+                                    <Button fx:id="btnAgregarCliente" layoutX="735.0" layoutY="238.0" mnemonicParsing="false" onAction="#agregarCliente" text="Agregar" />
+                                    <Label layoutX="560.0" layoutY="8.0" text="Información del cliente">
+                                       <font>
+                                          <Font size="21.0" />
+                                       </font></Label>
+                                    <Separator layoutX="-1.0" layoutY="35.0" prefHeight="7.0" prefWidth="1334.0" />
+                                    <Separator layoutY="209.0" prefHeight="7.0" prefWidth="1334.0" />
+                                    <Button fx:id="btnLimpiarCliente" layoutX="531.0" layoutY="238.0" mnemonicParsing="false" onAction="#limpiarCamposCliente" text="Limpiar" />
+                                    <DatePicker fx:id="dateNacimientoClientes" layoutX="655.0" layoutY="175.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                 <children>
+                                    <TableView fx:id="tableViewClientes" layoutX="334.0" layoutY="49.0" prefHeight="186.0" prefWidth="630.0">
+                                       <columns>
+                                          <TableColumn fx:id="columnNombresClientes" prefWidth="75.0" text="Nombres" />
+                                          <TableColumn fx:id="columnApellidosClientes" prefWidth="75.0" text="Apellidos" />
+                                       </columns>
+                                    </TableView>
+                                    <Button fx:id="btnEliminarCliente" layoutX="639.0" layoutY="250.0" mnemonicParsing="false" onAction="#eliminarClienteSeleccionado" text="Eliminar" />
+                                    <Label layoutX="593.0" layoutY="10.0" text="Listado de clientes">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font></Label>
+                                    <Separator layoutX="1.0" layoutY="33.0" prefHeight="7.0" prefWidth="1334.0" />
+                                 </children>
+                              </AnchorPane>
+                           </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Gestión coches">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="560.0" prefWidth="1394.0">
+                     <children>
+                        <Label layoutX="7.0" layoutY="199.0" prefHeight="45.0" prefWidth="229.0" text="Tipo de vehículo">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="14.0" layoutY="108.0" prefHeight="45.0" prefWidth="229.0" text="Tipo de transmisión">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="comboBoxTipoVehiculo" layoutX="227.0" layoutY="211.0" onAction="#vehiculoSeleccionado" prefWidth="150.0" />
+                        <ComboBox fx:id="comboBoxTransmision" layoutX="227.0" layoutY="118.0" prefWidth="150.0" />
+                        <Label layoutX="14.0" layoutY="153.0" prefHeight="45.0" prefWidth="229.0" text="Estado del vehículo">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="comboBoxEstadoVehiculo" layoutX="227.0" layoutY="163.0" prefWidth="150.0" />
+                        <Label layoutX="7.0" layoutY="55.0" prefHeight="45.0" prefWidth="229.0" text="Tipo de combustible">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="comboBoxCombustible" layoutX="227.0" layoutY="65.0" onAction="#tipoCombustibleSeleccionado" prefWidth="150.0" />
+                        <Label layoutX="7.0" layoutY="271.0" prefHeight="45.0" prefWidth="229.0" text="Marca">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtMarcaVehiculo" layoutX="227.0" layoutY="281.0" />
+                        <Label layoutX="7.0" layoutY="316.0" prefHeight="45.0" prefWidth="229.0" text="Modelo">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtModelo" layoutX="227.0" layoutY="326.0" />
+                        <Label layoutX="7.0" layoutY="351.0" prefHeight="45.0" prefWidth="229.0" text="Número de cambios">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtNumCambios" layoutX="227.0" layoutY="361.0" />
+                        <Label layoutX="7.0" layoutY="386.0" prefHeight="45.0" prefWidth="229.0" text="Velocidad máxima ">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="7.0" layoutY="419.0" prefHeight="45.0" prefWidth="229.0" text="Cilindraje">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="7.0" layoutY="453.0" prefHeight="45.0" prefWidth="229.0" text="Capacidad del maletero">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="7.0" layoutY="485.0" prefHeight="45.0" prefWidth="220.0" text="Número de bolsas de aire">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtVelocidadMax" layoutX="227.0" layoutY="396.0" />
+                        <TextField fx:id="txtCilindraje" layoutX="227.0" layoutY="429.0" />
+                        <TextField fx:id="txtCapacidadMaletero" layoutX="227.0" layoutY="463.0" />
+                        <TextField fx:id="txtNumBolsasAire" layoutX="227.0" layoutY="495.0" />
+                        <CheckBox fx:id="checkVelocidadCrucero" layoutX="604.0" layoutY="64.0" mnemonicParsing="false" text="Si" />
+                        <Label layoutX="430.0" layoutY="50.0" prefHeight="45.0" prefWidth="173.0" text="¿Velocidad crucero?">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="430.0" layoutY="85.0" prefHeight="45.0" prefWidth="173.0" text="¿ABS?">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <CheckBox fx:id="checkAbs" layoutX="604.0" layoutY="99.0" mnemonicParsing="false" text="Si" />
+                        <Label layoutX="418.0" layoutY="131.0" prefHeight="45.0" prefWidth="229.0" text="Número de pasajeros ">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="418.0" layoutY="176.0" prefHeight="45.0" prefWidth="229.0" text="Número de puertas ">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="418.0" layoutY="217.0" prefHeight="45.0" prefWidth="229.0" text="¿Aire acondicionado?">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="418.0" layoutY="253.0" prefHeight="45.0" prefWidth="229.0" text="¿Cámara de reversa?">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <CheckBox fx:id="checkAireAcondicionado" layoutX="601.0" layoutY="231.0" mnemonicParsing="false" text="Si" />
+                        <CheckBox fx:id="checkCamReversa" layoutX="601.0" layoutY="267.0" mnemonicParsing="false" text="Si" />
+                        <Label layoutX="418.0" layoutY="307.0" prefHeight="45.0" prefWidth="229.0" text="Hp ">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="418.0" layoutY="342.0" prefHeight="45.0" prefWidth="229.0" text="Aceleración 0-100kmh">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="418.0" layoutY="377.0" prefHeight="45.0" prefWidth="229.0" text="¿Es tracción total?">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="418.0" layoutY="415.0" prefHeight="45.0" prefWidth="229.0" text="Capacidad de carga">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="418.0" layoutY="451.0" prefHeight="45.0" prefWidth="229.0" text="Número de ejes">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="418.0" layoutY="487.0" prefHeight="45.0" prefWidth="229.0" text="Salidas de emergencia ">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtNumPasajeros" layoutX="601.0" layoutY="141.0" />
+                        <TextField fx:id="txtNumPuertas" layoutX="601.0" layoutY="186.0" />
+                        <TextField fx:id="txtAceleracion" layoutX="601.0" layoutY="351.0" />
+                        <TextField fx:id="txtCapacidadCarga" layoutX="601.0" layoutY="424.0" />
+                        <TextField fx:id="txtNumEjes" layoutX="601.0" layoutY="460.0" />
+                        <TextField fx:id="txtSalidasEmergencia" layoutX="601.0" layoutY="497.0" />
+                        <TextField fx:id="txtHp" layoutX="601.0" layoutY="316.0" />
+                        <Label layoutX="830.0" layoutY="55.0" prefHeight="45.0" prefWidth="229.0" text="Tipo de camión">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="830.0" layoutY="158.0" prefHeight="45.0" prefWidth="229.0" text="¿Es enchufable?">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="830.0" layoutY="187.0" prefHeight="45.0" prefWidth="229.0" text="¿Hibrído lígero?">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="830.0" layoutY="222.0" prefHeight="45.0" prefWidth="229.0" text="Tiempo aprox. de carga">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="886.0" layoutY="310.0" prefHeight="45.0" prefWidth="117.0" text="Sensores">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="830.0" layoutY="266.0" prefHeight="45.0" prefWidth="229.0" text="Autonomía ">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="830.0" layoutY="346.0" prefHeight="45.0" prefWidth="229.0" text="Asistente de carril">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="830.0" layoutY="377.0" prefHeight="45.0" prefWidth="229.0" text="Sensor de colisión ">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="830.0" layoutY="409.0" prefHeight="45.0" prefWidth="229.0" text="Sensor de tráfico cruzado">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="772.0" layoutY="387.0" prefHeight="45.0" prefWidth="229.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <CheckBox fx:id="checkAsisCarril" layoutX="1059.0" layoutY="360.0" mnemonicParsing="false" text="Si" />
+                        <CheckBox fx:id="checkSensorTraficoCruzado" layoutX="1059.0" layoutY="427.0" mnemonicParsing="false" text="Si" />
+                        <CheckBox fx:id="checkSensorColision" layoutX="1059.0" layoutY="392.0" mnemonicParsing="false" text="Si" />
+                        <TextField fx:id="txtAutonomia" layoutX="1024.0" layoutY="276.0" />
+                        <TextField fx:id="txtTiempoCarga" layoutX="1023.0" layoutY="234.0" />
+                        <ComboBox fx:id="comboBoxTipoCamion" layoutX="1015.0" layoutY="69.0" prefWidth="150.0" />
+                        <Button fx:id="btnRegistrarVehiculo" layoutX="591.0" layoutY="534.0" mnemonicParsing="false" onAction="#registrarVehiculo" prefHeight="25.0" prefWidth="170.0" text="Registrar vehículo" />
+                        <Button fx:id="btnLimpiarCampos" layoutX="14.0" layoutY="534.0" mnemonicParsing="false" onAction="#limpiarInfoCoches" prefHeight="25.0" prefWidth="170.0" text="Limpiar campos" />
+                        <CheckBox fx:id="checkEnchufable" layoutX="1059.0" layoutY="169.0" mnemonicParsing="false" text="Si" />
+                        <CheckBox fx:id="checkHibridoLigero" layoutX="1059.0" layoutY="201.0" mnemonicParsing="false" text="Si" />
+                        <CheckBox fx:id="checkTraccionTotal" layoutX="601.0" layoutY="391.0" mnemonicParsing="false" text="Si" />
+                        <Label layoutX="830.0" layoutY="91.0" prefHeight="45.0" prefWidth="229.0" text="Freno de aire">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <CheckBox fx:id="checkFrenoAire" layoutX="1059.0" layoutY="105.0" mnemonicParsing="false" text="Si" />
+                        <Label layoutX="830.0" layoutY="474.0" text="Precio">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtPrecio" layoutX="1024.0" layoutY="475.0" />
+                        <Button fx:id="btnSubirFoto" layoutX="990.0" layoutY="522.0" mnemonicParsing="false" onAction="#fileChooser" text="Subir foto" />
+                        <ImageView fx:id="imageView" fitHeight="104.0" fitWidth="124.0" layoutX="655.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" />
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Comprar Coches">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="btnComprar" layoutX="667.0" layoutY="474.0" mnemonicParsing="false" onAction="#abrirVentanaTransacciones" prefHeight="59.0" prefWidth="184.0" text="Comprar " />
+                        <TableView fx:id="tableViewVehiculos" editable="true" layoutX="23.0" layoutY="41.0" prefHeight="410.0" prefWidth="1289.0" tableMenuButtonVisible="true">
+                           <columns>
+                              <TableColumn fx:id="columnCombustible" prefWidth="86.0" text="Combustible" />
+                              <TableColumn fx:id="columnTransmision" prefWidth="79.0" text="Transmision" />
+                              <TableColumn fx:id="columnPrecio" minWidth="0.0" prefWidth="94.0" text="Precio" />
+                              <TableColumn fx:id="columnEstado" prefWidth="60.0" text="Estado" />
+                              <TableColumn fx:id="columnTipo" prefWidth="75.0" text="Tipo" />
+                              <TableColumn fx:id="columnMarca" prefWidth="75.0" text="Marca" />
+                              <TableColumn fx:id="columnModelo" prefWidth="75.0" text="Modelo" />
+                              <TableColumn fx:id="columnCambios" prefWidth="75.0" text="# Cambios" />
+                              <TableColumn fx:id="columnAbs" minWidth="0.0" prefWidth="94.0" text="ABS" />
+                              <TableColumn fx:id="columnVelocidadMax" prefWidth="94.0" text="Velocidad max" />
+                              <TableColumn fx:id="columnCilindraje" prefWidth="32.0" text="C.C" />
+                              <TableColumn fx:id="columnCapacidadMaletero" prefWidth="119.0" text="Capacidad maletero" />
+                              <TableColumn fx:id="columnAireAcondicionado" prefWidth="120.0" text="Aire Acondicionado" />
+                              <TableColumn fx:id="columnCamaraReversa" prefWidth="103.0" text="Cámara reversa" />
+                              <TableColumn fx:id="columnTiempoCarga" prefWidth="99.0" text="Tiempo carga" />
+                              <TableColumn fx:id="columnAutonomia" prefWidth="102.0" text="Autonomia cargado" />
+                           </columns>
+                        </TableView>
+                        <Button fx:id="btnAlquilar" layoutX="464.0" layoutY="474.0" mnemonicParsing="false" onAction="#abrirVentanaAlquiler" prefHeight="59.0" prefWidth="184.0" text="Alquilar" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+      <Separator layoutY="650.0" prefHeight="7.0" prefWidth="1349.0" />
+      <Button fx:id="btnRegresar" layoutX="656.0" layoutY="663.0" mnemonicParsing="false" onAction="#mostrarVentanaPrincipal" text="Volver" />
+   </children>
+</AnchorPane>

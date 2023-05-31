@@ -1,0 +1,61 @@
+package controllers;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+
+public class RestaurarAdminViewController {
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private TextField txtConfirmarCr;
+
+    @FXML
+    private Button btnValidar;
+
+    @FXML
+    private Label labelNuevaContra;
+
+    @FXML
+    private TextField txtPregunta;
+
+    @FXML
+    private Button btnConfirmarContra;
+
+    @FXML
+    private Button btnVolver;
+
+    @FXML
+    private TextField txtNuevaContra;
+
+    @FXML
+    private Label labelConfirmar;
+
+
+    @FXML
+    void cambiarContra(ActionEvent event) {
+
+
+    }
+
+    @FXML
+    void regresarVentana(ActionEvent event) {
+
+
+    }
+
+    @FXML
+    void initialize() {
+
+    }
+}

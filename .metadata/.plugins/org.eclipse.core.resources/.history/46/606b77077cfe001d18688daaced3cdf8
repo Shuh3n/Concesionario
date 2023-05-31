@@ -1,0 +1,106 @@
+package controllers;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import application.Aplicacion;
+import javafx.fxml.FXML;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.stage.Stage;
+import model.Estado;
+import model.TipoCombustible;
+import model.TipoVehiculo;
+import model.Vehiculo;
+
+public class VansViewController {
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private TableColumn<Vehiculo,String> columnModelo;
+
+    @FXML
+    private TableColumn<Vehiculo, TipoCombustible> columnCombustible;
+
+    @FXML
+    private TableColumn<Vehiculo, Estado> columnEstado;
+
+    @FXML
+    private TableColumn<Vehiculo, TipoVehiculo> columnTipo;
+
+    @FXML
+    private TableColumn<Vehiculo, Boolean> columnAireAcondicionado;
+
+    @FXML
+    private TableColumn<Vehiculo, Boolean> columnAbs;
+
+    @FXML
+    private TableColumn<Vehiculo, String> columnAutonomia;
+
+    @FXML
+    private TableColumn<Vehiculo, String> columnCapacidadMaletero;
+
+    @FXML
+    private TableColumn<Vehiculo, String> columnVelocidadMax;
+
+    @FXML
+    private TableColumn<Vehiculo, String> columnBolsasAire;
+
+    @FXML
+    private TableColumn<Vehiculo, String> columnPasajeros;
+
+    @FXML
+    private TableColumn<Vehiculo, String> columnCilindraje;
+
+    @FXML
+    private TableColumn<Vehiculo, String> columnTiempoCarga;
+
+    @FXML
+    private TableColumn<Vehiculo, Boolean> columnCamaraReversa;
+
+    @FXML
+    private TableColumn<Vehiculo, String> columnTransmision;
+
+    @FXML
+    private TableView<Vehiculo> tableViewVans;
+
+    @FXML
+    private TableColumn<Vehiculo, String> columnCambios;
+
+    @FXML
+    private TableColumn<Vehiculo, String> columnMarca;
+
+    @FXML
+    private TableColumn<Vehiculo, String> columnPuertas;
+
+	private Aplicacion aplicacion;
+
+	private EmpleadoViewController empleadoController;
+
+	private Stage stage;
+
+	ScrollPane scrollPane = new ScrollPane(tableViewVans);
+
+
+
+    @FXML
+    void initialize() {
+    	 scrollPane.setFitToWidth(true);
+    }
+
+	public  void setAplicacion(Aplicacion aplicacion) {
+		this.aplicacion = aplicacion;
+	}
+
+	public void init(Stage stage, EmpleadoViewController empleadoController) {
+		this.empleadoController = empleadoController;
+		this.stage = stage;
+	}
+}
+

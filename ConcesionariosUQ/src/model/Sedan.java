@@ -1,0 +1,199 @@
+package model;
+
+import java.io.Serializable;
+
+public class Sedan extends Vehiculo implements Serializable{
+
+	private String numPasajeros;
+	private String numPuertas;
+	private String capacidadMaletero;
+	private boolean aireacondicionado;
+	private boolean camReversa;
+	private boolean velocidadCrucero;
+	private String numBolsaAire;
+	private boolean abs;
+	private boolean sensoresColision;
+	private boolean sensorTraficoCruzado;
+	private boolean asisPermCarril;
+
+	public Sedan() {
+		super();
+	}
+
+
+
+	public String getNumPasajeros() {
+		return numPasajeros;
+	}
+
+	public void setNumPasajeros(String numPasajeros) {
+		this.numPasajeros = numPasajeros;
+	}
+
+	public String getNumPuertas() {
+		return numPuertas;
+	}
+
+	public void setNumPuertas(String numPuertas) {
+		this.numPuertas = numPuertas;
+	}
+
+	public String getCapacidadMaletero() {
+		return capacidadMaletero;
+	}
+
+	public void setCapacidadMaletero(String capacidadMaletero) {
+		this.capacidadMaletero = capacidadMaletero;
+	}
+
+	public boolean isAireacondicionado() {
+		return aireacondicionado;
+	}
+
+	public void setAireacondicionado(boolean aireacondicionado) {
+		this.aireacondicionado = aireacondicionado;
+	}
+
+	public boolean isCamReversa() {
+		return camReversa;
+	}
+
+	public void setCamReversa(boolean camReversa) {
+		this.camReversa = camReversa;
+	}
+
+	public boolean isVelocidadCrucero() {
+		return velocidadCrucero;
+	}
+
+	public void setVelocidadCrucero(boolean velocidadCrucero) {
+		this.velocidadCrucero = velocidadCrucero;
+	}
+
+	public String getNumBolsaAire() {
+		return numBolsaAire;
+	}
+
+	public void setNumBolsaAire(String numBolsaAire) {
+		this.numBolsaAire = numBolsaAire;
+	}
+
+	public boolean isAbs() {
+		return abs;
+	}
+
+	public void setAbs(boolean abs) {
+		this.abs = abs;
+	}
+
+	public boolean isSensoresColision() {
+		return sensoresColision;
+	}
+
+	public void setSensoresColision(boolean sensoresColision) {
+		this.sensoresColision = sensoresColision;
+	}
+
+	public boolean isSensorTraficoCruzado() {
+		return sensorTraficoCruzado;
+	}
+
+	public void setSensorTraficoCruzado(boolean sensorTraficoCruzado) {
+		this.sensorTraficoCruzado = sensorTraficoCruzado;
+	}
+
+	public boolean isAsisPermCarril() {
+		return asisPermCarril;
+	}
+
+	public void setAsisPermCarril(boolean asisPermCarril) {
+		this.asisPermCarril = asisPermCarril;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + (abs ? 1231 : 1237);
+		result = prime * result + (aireacondicionado ? 1231 : 1237);
+		result = prime * result + (asisPermCarril ? 1231 : 1237);
+		result = prime * result + (camReversa ? 1231 : 1237);
+		result = prime * result + ((capacidadMaletero == null) ? 0 : capacidadMaletero.hashCode());
+		result = prime * result + ((numBolsaAire == null) ? 0 : numBolsaAire.hashCode());
+		result = prime * result + ((numPasajeros == null) ? 0 : numPasajeros.hashCode());
+		result = prime * result + ((numPuertas == null) ? 0 : numPuertas.hashCode());
+		result = prime * result + (sensorTraficoCruzado ? 1231 : 1237);
+		result = prime * result + (sensoresColision ? 1231 : 1237);
+		result = prime * result + (velocidadCrucero ? 1231 : 1237);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Sedan other = (Sedan) obj;
+		if (abs != other.abs)
+			return false;
+		if (aireacondicionado != other.aireacondicionado)
+			return false;
+		if (asisPermCarril != other.asisPermCarril)
+			return false;
+		if (camReversa != other.camReversa)
+			return false;
+		if (capacidadMaletero == null) {
+			if (other.capacidadMaletero != null)
+				return false;
+		} else if (!capacidadMaletero.equals(other.capacidadMaletero))
+			return false;
+		if (numBolsaAire == null) {
+			if (other.numBolsaAire != null)
+				return false;
+		} else if (!numBolsaAire.equals(other.numBolsaAire))
+			return false;
+		if (numPasajeros == null) {
+			if (other.numPasajeros != null)
+				return false;
+		} else if (!numPasajeros.equals(other.numPasajeros))
+			return false;
+		if (numPuertas == null) {
+			if (other.numPuertas != null)
+				return false;
+		} else if (!numPuertas.equals(other.numPuertas))
+			return false;
+		if (sensorTraficoCruzado != other.sensorTraficoCruzado)
+			return false;
+		if (sensoresColision != other.sensoresColision)
+			return false;
+		if (velocidadCrucero != other.velocidadCrucero)
+			return false;
+		return true;
+	}
+
+
+	@Override
+	public String toString() {
+		return super.toString()+"Sedan [numPasajeros=" + numPasajeros + ", numPuertas=" + numPuertas + ", capacidadMaletero="
+				+ capacidadMaletero + ", aireacondicionado=" + aireacondicionado + ", camReversa=" + camReversa
+				+ ", velocidadCrucero=" + velocidadCrucero + ", numBolsaAire=" + numBolsaAire + ", abs=" + abs
+				+ ", sensoresColision=" + sensoresColision + ", sensorTraficoCruzado=" + sensorTraficoCruzado
+				+ ", asisPermCarril=" + asisPermCarril + "]";
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+}

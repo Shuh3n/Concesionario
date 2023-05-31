@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane prefHeight="278.0" prefWidth="608.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PrincipalViewController">
+   <children>
+      <Label layoutX="208.0" layoutY="14.0" text="Concesionario UQ" textFill="#1f6f00" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="211.0" layoutY="70.0" text="¿Quien desea ingresar?" AnchorPane.leftAnchor="211.0">
+         <font>
+            <Font name="Bookshelf Symbol 7" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnEmpleado" layoutX="136.0" layoutY="126.0" mnemonicParsing="false" onAction="#aceptarEmpleado" prefHeight="60.0" prefWidth="92.0" text="Empleado" />
+      <Button fx:id="btnAdministrador" layoutX="385.0" layoutY="126.0" mnemonicParsing="false" onAction="#aceptarAdministrador" prefHeight="60.0" prefWidth="122.0" text="Administrador" />
+      <Button fx:id="btnCerrar" layoutX="273.0" layoutY="226.0" mnemonicParsing="false" onAction="#cerrarApp" text="Salir" />
+      <Separator layoutY="49.0" prefHeight="5.0" prefWidth="608.0" />
+   </children>
+</AnchorPane>

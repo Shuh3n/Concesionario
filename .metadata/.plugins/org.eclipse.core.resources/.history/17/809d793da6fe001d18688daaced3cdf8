@@ -1,0 +1,84 @@
+package model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.sun.media.jfxmedia.events.NewFrameEvent;
+
+public class Transaccion {
+
+	 private String fecha;
+	 private String total;
+	 private String codigo;
+	 private List<DetalleTransaccion> listaDetalles = new ArrayList<>();
+
+	public Transaccion() {
+		super();
+	}
+	public Transaccion(String fecha, String total, String codigo) {
+		super();
+		this.fecha = fecha;
+		this.total = total;
+		this.codigo = codigo;
+	}
+	public String getFecha() {
+		return fecha;
+	}
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
+	}
+	public String getTotal() {
+		return total;
+	}
+	public void setTotal(String total) {
+		this.total = total;
+	}
+	public String getCodigo() {
+		return codigo;
+	}
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
+		result = prime * result + ((fecha == null) ? 0 : fecha.hashCode());
+		result = prime * result + ((total == null) ? 0 : total.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Transaccion other = (Transaccion) obj;
+		if (codigo == null) {
+			if (other.codigo != null)
+				return false;
+		} else if (!codigo.equals(other.codigo))
+			return false;
+		if (fecha == null) {
+			if (other.fecha != null)
+				return false;
+		} else if (!fecha.equals(other.fecha))
+			return false;
+		if (total == null) {
+			if (other.total != null)
+				return false;
+		} else if (!total.equals(other.total))
+			return false;
+		return true;
+	}
+	@Override
+	public String toString() {
+		return "Transaccion [fecha=" + fecha + ", total=" + total + ", codigo=" + codigo + "]";
+	}
+
+
+
+}

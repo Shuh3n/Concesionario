@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="controllers.PrincipalViewController"/>
+<fullyQualifiedTypeName name="controllers.IniciarEmpleadoViewController"/>
+<fullyQualifiedTypeName name="model.ConcesiorarioUQ"/>
+<fullyQualifiedTypeName name="model.TipoCamion"/>
+<fullyQualifiedTypeName name="controllers.VansViewController"/>
+<fullyQualifiedTypeName name="controllers.EmpleadoViewController"/>
+<fullyQualifiedTypeName name="javafx.scene.control.ScrollPane"/>
+<fullyQualifiedTypeName name="controllers.TransaccionesViewController"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="model.TipoVehiculo"/>
+<fullyQualifiedTypeName name="model.TipoTransmision"/>
+<fullyQualifiedTypeName name="model.TipoCombustible"/>
+<fullyQualifiedTypeName name="model.Estado"/>
+<fullyQualifiedTypeName name="model.Empleado"/>
+<fullyQualifiedTypeName name="java.lang.VerifyError"/>
+<fullyQualifiedTypeName name="model.Transaccion"/>
+<fullyQualifiedTypeName name="javafx.scene.control.Alert.AlertType"/>
+<fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+<fullyQualifiedTypeName name="model.Vehiculo"/>
+<fullyQualifiedTypeName name="controllers.AlquilerViewController"/>
+<fullyQualifiedTypeName name="javafx.fxml.Initializable"/>
+<fullyQualifiedTypeName name="model.TipoTransacciones"/>
+<fullyQualifiedTypeName name="javafx.event.ActionEvent"/>
+<fullyQualifiedTypeName name="javafx.scene.image.ImageView"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="javax.swing.JFileChooser"/>
+<fullyQualifiedTypeName name="javafx.stage.FileChooser"/>
+<fullyQualifiedTypeName name="java.security.cert.Extension"/>
+<fullyQualifiedTypeName name="javax.swing.filechooser.FileNameExtensionFilter"/>
+<fullyQualifiedTypeName name="javafx.stage.FileChooser.ExtensionFilter"/>
+<fullyQualifiedTypeName name="javafx.scene.image.Image"/>
+<fullyQualifiedTypeName name="javafx.scene.control.DatePicker"/>
+<fullyQualifiedTypeName name="java.time.LocalDate"/>
+</qualifiedTypeNameHistroy>

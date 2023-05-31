@@ -1,0 +1,180 @@
+package controllers;
+
+import java.net.URL;
+import java.time.LocalDate;
+import java.util.Random;
+import java.util.ResourceBundle;
+
+import application.Aplicacion;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+import model.TipoTransacciones;
+import model.Vehiculo;
+
+public class AlquilerViewController implements Initializable {
+
+	Singleton singleton = Singleton.getInstance();
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private ComboBox<TipoTransacciones> comboBoxTipoFactura;
+
+    @FXML
+    private TextField txtModelo;
+
+    @FXML
+    private Button btnVolver;
+
+    @FXML
+    private TextField txtCodeEncargado;
+
+    @FXML
+    private TextField txtCodigoFactura;
+
+    @FXML
+    private ImageView imageTransacciones;
+
+    @FXML
+    private DatePicker dateFechaFactura1;
+
+    @FXML
+    private TextField txtValorFactura;
+
+    @FXML
+    private TextField txtMarca;
+
+    @FXML
+    private Button btnRealizarCompra;
+
+    @FXML
+    private DatePicker dateFechaFactura;
+
+	private Aplicacion aplicacion;
+
+	private EmpleadoViewController empleadoViewController;
+
+	private Stage stage;
+
+    @FXML
+    void abrirVentanaPrincipal(ActionEvent event) {
+    	this.stage.close();
+    }
+
+    @FXML
+    void initialize() {
+    }
+
+	public void setAplicacion(Aplicacion aplicacion) {
+		this.aplicacion = aplicacion;
+	}
+
+
+	public void init(Stage stage, EmpleadoViewController empleadoViewController) {
+		this.empleadoViewController = empleadoViewController;
+		this.stage = stage;
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+
+		txtMarca.setEditable(false);
+		comboBoxTipoFactura.getItems().addAll(TipoTransacciones.values());
+		comboBoxTipoFactura.setDisable(true);
+		dateFechaFactura.setDisable(true);
+		txtModelo.setEditable(false);
+		txtCodigoFactura.setEditable(false);
+		txtValorFactura.setEditable(false);
+
+
+	}
+
+    @FXML
+    void registrarTransaccion(ActionEvent event) {
+    	String marca = txtMarca.getText();
+    	String modelo = txtModelo.getText();
+    	String codigo = txtCodigoFactura.getText();
+    	String codigoEmpleado = txtCodeEncargado.getText();
+    	TipoTransacciones transaccion = comboBoxTipoFactura.getValue();
+    	String valor = txtValorFactura.getText();
+    	LocalDate fecha = dateFechaFactura.getValue();
+
+
+    	if(codigoEmpleado!=null && !codigoEmpleado.equals("") && dateFechaFactura1!=null){
+    		crearFactura(marca, modelo, codigo, codigoEmpleado, transaccion, valor, fecha, empleadoViewController.getCarSelection());
+    		this.stage.close();
+    	}
+    	else{
+    		mostrarMensaje("Notificiación", "", "Por favor ingrese los datos solicitados", AlertType.INFORMATION);
+    	}
+    }
+
+    private void crearFactura(String marca, String modelo, String codigo, String codigoEmpleado,
+			TipoTransacciones transaccion, String valor, LocalDate fecha, Vehiculo car) {
+    	String flag = singleton.crearFactura(marca, modelo, codigo, codigoEmpleado, transaccion, valor, fecha, car);
+    	if(flag=="0"){
+    		mostrarMensaje("Información", "Factura registrada", "La factura se agregó con éxito", AlertType.INFORMATION);
+    		singleton.getlistaVehiculos().remove(empleadoViewController.getCarSelection());
+    		empleadoViewController.refreshTableViewVehiculos();
+    		empleadoViewController.setCarSelection();
+
+    	}
+    	else{
+    		if(flag=="2")
+    		mostrarMensaje("Información", "Factura no añadida", "La factura ya existe", AlertType.INFORMATION);
+
+    		else{
+    			mostrarMensaje("Información", "Factura no creada", "El ID del empleado está errado", AlertType.INFORMATION);
+    		}
+    	}
+	}
+
+
+    public void mostrarMensaje(String titulo, String header, String contenido, AlertType alertype) {
+		Alert alert = new Alert(alertype);
+		alert.setTitle(titulo);
+		alert.setHeaderText(header);
+		alert.setContentText(contenido);
+		alert.showAndWait();
+	}
+
+	private String generateRandomString() {
+        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        StringBuilder sb = new StringBuilder();
+        Random random = new Random();
+
+        // Generar una cadena aleatoria de longitud 10
+        for (int i = 0; i < 10; i++) {
+            int index = random.nextInt(characters.length());
+            sb.append(characters.charAt(index));
+        }
+
+        return sb.toString();
+    }
+
+	public void facturaAlquiler(){
+		Vehiculo car = empleadoViewController.getCarSelection();
+		txtCodigoFactura.setText(generateRandomString());
+		txtMarca.setText(""+ car.getMarca());
+		txtModelo.setText(""+ car.getModelo());
+		comboBoxTipoFactura.setValue(TipoTransacciones.ALQUILER);
+		txtValorFactura.setText(""+ car.getPrecio());
+		dateFechaFactura.setValue(LocalDate.now());
+	}
+
+
+}
+
